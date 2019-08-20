@@ -1,0 +1,10 @@
+D:\Documents_D\DrawPixel\DrawPixel\bin\Debug\DrawPixel.exe.config
+D:\Documents_D\DrawPixel\DrawPixel\bin\Debug\DrawPixel.exe
+D:\Documents_D\DrawPixel\DrawPixel\bin\Debug\DrawPixel.pdb
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csprojAssemblyReference.cache
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.Form1.resources
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.Properties.Resources.resources
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csproj.GenerateResource.cache
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csproj.CoreCompileInputs.cache
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.exe
+D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.pdb
