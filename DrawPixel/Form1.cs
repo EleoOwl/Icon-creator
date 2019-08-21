@@ -142,7 +142,7 @@ namespace DrawPixel
             {
                 int l = (int)Math.Sqrt(board.Length);
                 for (int i = 0; i < l; i++)
-                    for (int j = 0; j < l; j++) board[i, j].BackColor = Color.Gray;
+                    for (int j = 0; j < l; j++) board[i, j].BackColor = defaultPixelColor;
             }
         }
 
@@ -154,7 +154,7 @@ namespace DrawPixel
                 Bitmap bmp = new Bitmap(c, c);
                 for (int i = 0; i < c; i++)
                     for (int j = 0; j < c; j++)
-                      if (board[i, j].BackColor!=Color.Gray)  bmp.SetPixel(j, i, board[i, j].BackColor);
+                      if (board[i, j].BackColor!= defaultPixelColor)  bmp.SetPixel(j, i, board[i, j].BackColor);
 
                 FileDialog a = new SaveFileDialog();
                 a.Filter = "Изображение (.png)|*.png";
@@ -201,7 +201,7 @@ namespace DrawPixel
                     for (int j = 0; j < value; j++)
                     {
                         if (i > diff && j > diff && i < (len - diff) && j < (len - diff)) newe[i, j] = board[i - diff, j - diff].BackColor;
-                        else newe[i, j] = Color.Gray;
+                        else newe[i, j] = defaultPixelColor;
                     }
             }
 
