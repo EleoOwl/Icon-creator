@@ -37,6 +37,7 @@
             this.but_less = new System.Windows.Forms.Button();
             this.but_more = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -167,6 +168,7 @@
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace DrawPixel
 {
@@ -115,40 +116,87 @@ namespace DrawPixel
 
         private void save_Click(object sender, EventArgs e)
         {
-            DialogResult f = MessageBox.Show("Do you  want to save your picture as .jpg?", "", MessageBoxButtons.YesNoCancel);
-            if (f == DialogResult.Yes)
-            {
-                int c = (int)Math.Sqrt(board.Length);
-                Bitmap bmp = new Bitmap(c, c);
-                for (int i = 0; i < c; i++)
-                    for (int j = 0; j < c; j++)
-                        if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
+            //DialogResult f = MessageBox.Show("Do you  want to save your picture as .jpg?", "", MessageBoxButtons.YesNoCancel);
+            //if (f == DialogResult.Yes)
+            //{
+            //    int c = (int)Math.Sqrt(board.Length);
+            //    Bitmap bmp = new Bitmap(c, c);
+            //    for (int i = 0; i < c; i++)
+            //        for (int j = 0; j < c; j++)
+            //            if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
 
-                FileDialog a = new SaveFileDialog();
-                a.Filter = "Изображение (.png)|*.png";
-                a.ShowDialog();
-                if (a.FileName != null)
-                    bmp.Save(a.FileName);
-            }
-            else if (f == DialogResult.No)
+            //    FileDialog a = new SaveFileDialog();
+            //    a.Filter = "Изображение (.png)|*.png";
+            //    a.ShowDialog();
+            //    if (a.FileName != null)
+            //        bmp.Save(a.FileName);
+            //}
+            //else if (f == DialogResult.No)
+            //{
+            //    int c = (int)Math.Sqrt(board.Length);
+            //    Bitmap bmp = new Bitmap(c, c);
+            //    Color[,] clr = new Color[c, c];
+            //    for (int i = 0; i < c; i++)
+            //        for (int j = 0; j < c; j++)
+            //        {
+            //            if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
+            //            clr[i, j] = board[i, j].BackColor;
+            //        }
+            //    CoolImage.CoolImage saved = new CoolImage.CoolImage(clr, bmp);
+            //    FileDialog a = new SaveFileDialog();
+            //    a.Filter = "Сериализированный объект bin (*.bin)|*.bin|Сериализованный объект .soap |*.soap| Сериализованный объект .xml |*.xml";
+            //    a.ShowDialog();
+            //    if (a.FileName != null)
+            //        saved.Save(a.FileName, Ext(a.FileName));
+            //}
+            try
             {
+                FileDialog a = new SaveFileDialog();
+                a.ShowDialog();
+                //изображение
                 int c = (int)Math.Sqrt(board.Length);
+
                 Bitmap bmp = new Bitmap(c, c);
                 Color[,] clr = new Color[c, c];
+
                 for (int i = 0; i < c; i++)
                     for (int j = 0; j < c; j++)
                     {
                         if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
                         clr[i, j] = board[i, j].BackColor;
                     }
-                CoolImage.CoolImage saved = new CoolImage.CoolImage(clr, bmp);
-                FileDialog a = new SaveFileDialog();
-                a.Filter = "Сериализированный объект (.bin, .xml, .soap)|*.png|*.xml|*.soap";
-                a.ShowDialog();
+                string name = getName(a.FileName);
+                DirectoryInfo dirInfo = new DirectoryInfo(a.FileName);
+                if (!dirInfo.Exists)
+                {
+                    dirInfo.Create();
+                }
                 if (a.FileName != null)
-                    saved.Save(a.FileName, Ext(a.FileName));
+                    bmp.Save(a.FileName + "\\" + name + ".png");
+
+                //сериализации
+
+                CoolImage.CoolImage saved = new CoolImage.CoolImage(clr, bmp);
+
+                saved.Save(a.FileName + "\\" + name + ".bin", CoolImage.CoolImage.SerializeFormat.Binary);
+                // saved.Save(a.FileName + "\\" + name + ".xml", CoolImage.CoolImage.SerializeFormat.Xml);
+                saved.Save(a.FileName + "\\" + name + ".soap", CoolImage.CoolImage.SerializeFormat.Soap);
             }
+            catch { MessageBox.Show("You've done something wrong, sorry. You could try again"); }
         }
+
+        private string getName(string s)
+        {
+            string ss = ""; bool coma = !s.Contains('.');
+            for (int i = s.Length - 1; i >= 0 && s[i] != '\\'; i--)
+            {
+                if (s[i] == '.') coma = true;
+                if (coma) ss += s[i];
+            }
+            ss.Reverse();
+            return ss;
+        }
+
         private CoolImage.CoolImage.SerializeFormat Ext(string a)
         {
             for (int i = 0; i < a.Length && a[i] != '.'; i++)
@@ -209,5 +257,7 @@ namespace DrawPixel
             Remove_board();
             Create_board(value, newe);
         }
+
+
     }
 }
