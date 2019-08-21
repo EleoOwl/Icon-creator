@@ -15,7 +15,7 @@ namespace DrawPixel
     {
         Panel[,] board;
         Color mouseColour;
-        Color defaultPixelColor = Color.Gray;
+        Color defaultPixelColor = Color.White;
 
         #region Moving form, dragging panel
         [DllImport("user32", CharSet = CharSet.Auto)]

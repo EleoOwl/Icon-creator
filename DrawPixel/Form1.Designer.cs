@@ -50,6 +50,7 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pcb_CurrentColor = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(138)))), ((int)(((byte)(197)))));
             this.panel1.Controls.Add(this.pcb_CurrentColor);
             this.panel1.Controls.Add(this.clear);
             this.panel1.Controls.Add(this.save);
@@ -164,6 +166,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.pnl_Pixels);
+            this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.menuStrip1);
@@ -176,10 +179,11 @@
             // 
             // pnl_Pixels
             // 
+            this.pnl_Pixels.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(138)))), ((int)(((byte)(197)))));
             this.pnl_Pixels.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Pixels.Location = new System.Drawing.Point(0, 70);
+            this.pnl_Pixels.Location = new System.Drawing.Point(0, 80);
             this.pnl_Pixels.Name = "pnl_Pixels";
-            this.pnl_Pixels.Size = new System.Drawing.Size(651, 409);
+            this.pnl_Pixels.Size = new System.Drawing.Size(651, 399);
             this.pnl_Pixels.TabIndex = 5;
             // 
             // panel4
@@ -264,6 +268,15 @@
             this.pcb_CurrentColor.TabStop = false;
             this.pcb_CurrentColor.Click += new System.EventHandler(this.pcb_CurrentColor_Click);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(51)))), ((int)(((byte)(107)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 70);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(651, 10);
+            this.panel5.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,6 +332,7 @@
         private System.Windows.Forms.Panel pnl_Pixels;
         private System.Windows.Forms.PictureBox pcb_CloseForm;
         private System.Windows.Forms.PictureBox pcb_CurrentColor;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 
