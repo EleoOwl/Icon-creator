@@ -41,7 +41,7 @@ namespace DrawPixel
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            mouseColour = Color.Black;
+            pcb_CurrentColor.BackColor = mouseColour = Color.Black;
             mousePAINT = false;
             trackBar1.Minimum = 6;
             trackBar1.Maximum = 50;
@@ -122,20 +122,9 @@ namespace DrawPixel
             board = new Panel[0,0];
         }
 
-        private void but_more_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void but_less_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void but_colour_Click(object sender, EventArgs e)
         {
-            colorDialog1.ShowDialog();
-            mouseColour = colorDialog1.Color;
+            mouseColour = pcb_CurrentColor.BackColor;
         }
         private void panel_Click(object sender, EventArgs e)
         {
@@ -144,7 +133,7 @@ namespace DrawPixel
 
         private void erase_Click(object sender, EventArgs e)
         {
-            mouseColour = Color.Gray;
+            mouseColour = defaultPixelColor;
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -174,11 +163,8 @@ namespace DrawPixel
                      bmp.Save(a.FileName);
             }
         }
-
-
         bool mousePAINT;
        
-
         private void Paint(object sender, EventArgs e)
         {
           if (mousePAINT)
@@ -232,6 +218,13 @@ namespace DrawPixel
         {
             ReleaseCapture();
             PostMessage(this.Handle, WM_SYSCOMMAND, DOMOVE, 0);
+        }
+
+        private void pcb_CurrentColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            pcb_CurrentColor.BackColor = colorDialog1.Color;
+            mouseColour = pcb_CurrentColor.BackColor;
         }
     }
 }

@@ -49,6 +49,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pcb_CurrentColor = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,14 +57,16 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_CurrentColor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.pcb_CurrentColor);
+            this.panel1.Controls.Add(this.clear);
             this.panel1.Controls.Add(this.save);
             this.panel1.Controls.Add(this.erase);
-            this.panel1.Controls.Add(this.clear);
+            this.panel1.Controls.Add(this.trackBar1);
             this.panel1.Controls.Add(this.but_colour);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
@@ -73,7 +76,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(195, 3);
+            this.trackBar1.Location = new System.Drawing.Point(248, 1);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(144, 45);
             this.trackBar1.SmallChange = 2;
@@ -86,7 +89,7 @@
             // 
             this.save.BackgroundImage = global::DrawPixel.Properties.Resources.save_icon;
             this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.save.Location = new System.Drawing.Point(101, 3);
+            this.save.Location = new System.Drawing.Point(150, 3);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(43, 39);
             this.save.TabIndex = 5;
@@ -108,7 +111,7 @@
             // 
             this.clear.BackgroundImage = global::DrawPixel.Properties.Resources.clear;
             this.clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.clear.Location = new System.Drawing.Point(150, 3);
+            this.clear.Location = new System.Drawing.Point(199, 3);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(43, 39);
             this.clear.TabIndex = 3;
@@ -252,6 +255,15 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // pcb_CurrentColor
+            // 
+            this.pcb_CurrentColor.Location = new System.Drawing.Point(101, 3);
+            this.pcb_CurrentColor.Name = "pcb_CurrentColor";
+            this.pcb_CurrentColor.Size = new System.Drawing.Size(43, 39);
+            this.pcb_CurrentColor.TabIndex = 6;
+            this.pcb_CurrentColor.TabStop = false;
+            this.pcb_CurrentColor.Click += new System.EventHandler(this.pcb_CurrentColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +290,7 @@
             this.panel4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_CurrentColor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,6 +318,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnl_Pixels;
         private System.Windows.Forms.PictureBox pcb_CloseForm;
+        private System.Windows.Forms.PictureBox pcb_CurrentColor;
     }
 }
 
