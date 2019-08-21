@@ -1,23 +1,13 @@
-D:\Documents_D\DrawPixel\DrawPixel\bin\Debug\DrawPixel.exe.config
-D:\Documents_D\DrawPixel\DrawPixel\bin\Debug\DrawPixel.exe
-D:\Documents_D\DrawPixel\DrawPixel\bin\Debug\DrawPixel.pdb
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csprojAssemblyReference.cache
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.Form1.resources
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.Properties.Resources.resources
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csproj.GenerateResource.cache
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csproj.CoreCompileInputs.cache
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.exe
-D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.pdb
-D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\DrawPixel.exe.config
-D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\DrawPixel.exe
-D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\DrawPixel.pdb
-D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\CoolImage.dll
-D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\CoolImage.pdb
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csprojAssemblyReference.cache
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.Form1.resources
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.Properties.Resources.resources
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.GenerateResource.cache
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CoreCompileInputs.cache
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CopyComplete
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.exe
-D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.pdb
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\DrawPixel.exe.config
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\DrawPixel.exe
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\DrawPixel.pdb
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\CoolImage.dll
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\CoolImage.pdb
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csprojAssemblyReference.cache
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.Form1.resources
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.Properties.Resources.resources
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.GenerateResource.cache
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CoreCompileInputs.cache
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CopyComplete
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.exe
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.pdb
