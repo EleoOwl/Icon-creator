@@ -92,5 +92,11 @@
   <ItemGroup>
     <None Include="Resources\pipette.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoolImage\CoolImage.csproj">
+      <Project>{cb0cb0ae-dc84-41e6-b440-a8a7adc6987e}</Project>
+      <Name>CoolImage</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

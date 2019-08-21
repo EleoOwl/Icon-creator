@@ -17,7 +17,7 @@ namespace DrawPixel
         Color mouseColour;
         public Form1()
         {
-            
+
             InitializeComponent();
             Create_board(20);
         }
@@ -47,7 +47,7 @@ namespace DrawPixel
         private void Create_board(int n, Color[,] arr = null)
         {
             int l = 20, r = this.Width - panel1.Width - l;
-            int u = 20, d = this.Height - 2*u;
+            int u = 20, d = this.Height - 2 * u;
 
             int size = ((r - l) < (d - u) ? (r - l) : (d - u)) / n;
             Remove_board();
@@ -61,7 +61,7 @@ namespace DrawPixel
                     board[i, j].Size = new Size((int)(0.9 * size), (int)(0.9 * size));
                     board[i, j].Location = new Point(l, u); l += size;
                     if (arr == null) board[i, j].BackColor = Color.Gray;
-                       else board[i, j].BackColor = arr[i, j];
+                    else board[i, j].BackColor = arr[i, j];
                     //  board[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Left)));
                     board[i, j].Click += new EventHandler(panel_Click);
                     board[i, j].MouseEnter += new EventHandler(Paint);
@@ -70,12 +70,12 @@ namespace DrawPixel
                 }
                 u += size;
             }
-            
+
         }
         private void Remove_board()
         {
-           if (board!= null) foreach (Panel b in board)  Controls.Remove(b); 
-            board = new Panel[0,0];
+            if (board != null) foreach (Panel b in board) Controls.Remove(b);
+            board = new Panel[0, 0];
         }
 
         private void but_more_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace DrawPixel
         }
         private void panel_Click(object sender, EventArgs e)
         {
-           if (!mousePAINT) (sender as Panel).BackColor = mouseColour;
+            if (!mousePAINT) (sender as Panel).BackColor = mouseColour;
         }
 
         private void erase_Click(object sender, EventArgs e)
@@ -115,37 +115,68 @@ namespace DrawPixel
 
         private void save_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you  want to save your picture as .jpg?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            DialogResult f = MessageBox.Show("Do you  want to save your picture as .jpg?", "", MessageBoxButtons.YesNoCancel);
+            if (f == DialogResult.Yes)
             {
-                int c =(int) Math.Sqrt(board.Length);
+                int c = (int)Math.Sqrt(board.Length);
                 Bitmap bmp = new Bitmap(c, c);
                 for (int i = 0; i < c; i++)
                     for (int j = 0; j < c; j++)
-                      if (board[i, j].BackColor!=Color.Gray)  bmp.SetPixel(i, j, board[i, j].BackColor);
+                        if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
 
                 FileDialog a = new SaveFileDialog();
                 a.Filter = "Изображение (.png)|*.png";
                 a.ShowDialog();
-                if (a.FileName!=null)
-                     bmp.Save(a.FileName);
+                if (a.FileName != null)
+                    bmp.Save(a.FileName);
+            }
+            else if (f == DialogResult.No)
+            {
+                int c = (int)Math.Sqrt(board.Length);
+                Bitmap bmp = new Bitmap(c, c);
+                Color[,] clr = new Color[c, c];
+                for (int i = 0; i < c; i++)
+                    for (int j = 0; j < c; j++)
+                    {
+                        if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
+                        clr[i, j] = board[i, j].BackColor;
+                    }
+                CoolImage.CoolImage saved = new CoolImage.CoolImage(clr, bmp);
+                FileDialog a = new SaveFileDialog();
+                a.Filter = "Сериализированный объект (.bin, .xml, .soap)|*.png|*.xml|*.soap";
+                a.ShowDialog();
+                if (a.FileName != null)
+                    saved.Save(a.FileName, Ext(a.FileName));
             }
         }
-
+        private CoolImage.CoolImage.SerializeFormat Ext(string a)
+        {
+            for (int i = 0; i < a.Length && a[i] != '.'; i++)
+            {
+                if (a[i + 1] == '.') switch (a[i + 2])
+                    {
+                        case 's': return CoolImage.CoolImage.SerializeFormat.Soap; break;
+                        case 'x': return CoolImage.CoolImage.SerializeFormat.Xml; break;
+                        case 'b': return CoolImage.CoolImage.SerializeFormat.Binary; break;
+                    }
+            }
+            return CoolImage.CoolImage.SerializeFormat.Binary;
+        }
 
         bool mousePAINT;
-       
+
 
         private void Paint(object sender, EventArgs e)
         {
-          if (mousePAINT)
+            if (mousePAINT)
                 (sender as Panel).BackColor = mouseColour;
         }
 
-        private void Form1_MouseDoubleClick(object sender,EventArgs e)
+        private void Form1_MouseDoubleClick(object sender, EventArgs e)
         {
             mousePAINT = !mousePAINT;
         }
-        
+
         private void trackBar1_MouseUp(object sender, MouseEventArgs e)
         {
             if (trackBar1.Value != (int)Math.Sqrt(board.Length)) Do_Resize(trackBar1.Value);
@@ -153,20 +184,20 @@ namespace DrawPixel
 
         private void Do_Resize(int value)
         {
-            int len =(int) Math.Sqrt(board.Length);
+            int len = (int)Math.Sqrt(board.Length);
             Color[,] newe = new Color[value, value];
             if (value < len)
             {
-                int diff = (len - value) / 2 ;
-                for (int i = diff; i < len - diff-1; i++)
-                    for(int j = diff; j<len-diff-1; j++)
+                int diff = (len - value) / 2;
+                for (int i = diff; i < len - diff - 1; i++)
+                    for (int j = diff; j < len - diff - 1; j++)
                     {
-                        newe[i - diff, j - diff] = board[i, j].BackColor; 
+                        newe[i - diff, j - diff] = board[i, j].BackColor;
                     }
             }
             else
             {
-                int diff = (value-len) / 2;
+                int diff = (value - len) / 2;
                 for (int i = 0; i < value; i++)
                     for (int j = 0; j < value; j++)
                     {
