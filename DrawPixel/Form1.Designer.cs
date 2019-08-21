@@ -136,6 +136,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(651, 33);
             this.panel2.TabIndex = 3;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // pcb_CloseForm
             // 
