@@ -8,3 +8,13 @@ D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csproj.GenerateResource.c
 D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.csproj.CoreCompileInputs.cache
 D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.exe
 D:\Documents_D\DrawPixel\DrawPixel\obj\Debug\DrawPixel.pdb
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\DrawPixel.exe.config
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\DrawPixel.exe
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\DrawPixel.pdb
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csprojAssemblyReference.cache
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.Form1.resources
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.Properties.Resources.resources
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.GenerateResource.cache
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CoreCompileInputs.cache
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.exe
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.pdb
