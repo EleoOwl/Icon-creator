@@ -18,15 +18,15 @@ namespace CoolImage
     {
         public enum SerializeFormat { Binary, Xml, Soap }
         public Color[,] pixelArr { get; internal set; }
-        public Image img { get; internal set; }
+        public Bitmap img { get; internal set; }
 
         public CoolImage()
         {
             this.pixelArr = new Color[0,0];
-            this.img = new Bitmap(0,0);
+            this.img = new Bitmap(1,1);
 
         }
-        public CoolImage(Color[,] pixelArr, Image img)
+        public CoolImage(Color[,] pixelArr, Bitmap img)
         {
             this.pixelArr = pixelArr;
             this.img = img;
@@ -43,7 +43,7 @@ namespace CoolImage
                     if (pixelArr[i, j] != Color.Gray) (img as Bitmap).SetPixel(i, j, pixelArr[i, j]);
 
         }
-        public CoolImage(Image img)
+        public CoolImage(Bitmap img)
         {
             this.img = img;
 
