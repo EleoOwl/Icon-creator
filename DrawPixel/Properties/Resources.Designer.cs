@@ -63,6 +63,16 @@ namespace DrawPixel.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkedClose20px {
+            get {
+                object obj = ResourceManager.GetObject("checkedClose20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clear {
             get {
                 object obj = ResourceManager.GetObject("clear", resourceCulture);
@@ -96,6 +106,16 @@ namespace DrawPixel.Properties {
         internal static System.Drawing.Bitmap save_icon {
             get {
                 object obj = ResourceManager.GetObject("save-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uncheckedClose20px {
+            get {
+                object obj = ResourceManager.GetObject("uncheckedClose20px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

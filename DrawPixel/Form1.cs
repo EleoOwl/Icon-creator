@@ -16,11 +16,16 @@ namespace DrawPixel
 
         Panel[,] board;
         Color mouseColour;
+        Color defaultPixelColor = Color.Gray;
         public Form1()
         {
 
             InitializeComponent();
             Create_board(20);
+            menuStrip1.Renderer = new ToolStripProfessionalRenderer(new MenuStripColorTable());
+            pcb_CloseForm.MouseEnter += (s, e) => { pcb_CloseForm.Image = Properties.Resources.checkedClose20px; };
+            pcb_CloseForm.MouseLeave += (s, e) => { pcb_CloseForm.Image = Properties.Resources.uncheckedClose20px; };
+            pcb_CloseForm.Click += (s, e) => { Application.Exit(); };
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,36 +52,65 @@ namespace DrawPixel
         }
         private void Create_board(int n, Color[,] arr = null)
         {
-            int l = 20, r = this.Width - panel1.Width - l;
-            int u = 20, d = this.Height - 2 * u;
+            //int l = 20, r = this.Width - panel1.Width - l;
+            //int u = 20, d = this.Height - 2*u;
 
-            int size = ((r - l) < (d - u) ? (r - l) : (d - u)) / n;
+            //int size = ((r - l) < (d - u) ? (r - l) : (d - u)) / n;
+            //Remove_board();
+            //board = new Panel[n, n];
+            //for (int i = 0; i < n; i++)
+            //{
+            //    l = 20;
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        board[i, j] = new Panel();
+            //        board[i, j].Size = new Size((int)(0.9 * size), (int)(0.9 * size));
+            //        board[i, j].Location = new Point(l, u); l += size;
+            //        if (arr == null) board[i, j].BackColor = Color.Gray;
+            //           else board[i, j].BackColor = arr[i, j];
+            //        //  board[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Left)));
+            //        board[i, j].Click += new EventHandler(panel_Click);
+            //        board[i, j].MouseEnter += new EventHandler(Paint);
+            //        board[i, j].DoubleClick += new EventHandler(Form1_MouseDoubleClick);
+            //        pnl_Pixels.Controls.Add(board[i, j]);
+            //    }
+            //    u += size;
+            
+
+            int x = 5, y = 5, d = 2; // Начальные координаты.
+            int size = pnl_Pixels.Width > pnl_Pixels.Height ? (pnl_Pixels.Height - 2 * x - (n - 1) * d) / n :
+                (pnl_Pixels.Width - 2 * x - (n - 1) * d) / n;
+            //while (n * (size + d) < pnl_Pixels.Height) size++;
             Remove_board();
             board = new Panel[n, n];
             for (int i = 0; i < n; i++)
             {
-                l = 20;
-                for (int j = 0; j < n; j++)
+                x = 5;
+                for(int j = 0; j < n; j++)
                 {
-                    board[i, j] = new Panel();
-                    board[i, j].Size = new Size((int)(0.9 * size), (int)(0.9 * size));
-                    board[i, j].Location = new Point(l, u); l += size;
-                    if (arr == null) board[i, j].BackColor = Color.Gray;
+                    board[i, j] = new Panel
+                    {
+                        Size = new Size(size, size),
+                        Location = new Point(x, y),
+                    };
+                    if (arr == null) board[i, j].BackColor = defaultPixelColor;
                     else board[i, j].BackColor = arr[i, j];
-                    //  board[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Left)));
                     board[i, j].Click += new EventHandler(panel_Click);
                     board[i, j].MouseEnter += new EventHandler(Paint);
                     board[i, j].DoubleClick += new EventHandler(Form1_MouseDoubleClick);
-                    Controls.Add(board[i, j]);
+                    pnl_Pixels.Controls.Add(board[i, j]);
+                    x += size + d;
                 }
-                u += size;
+                y += size + d;
             }
 
+           
+            
         }
         private void Remove_board()
         {
-            if (board != null) foreach (Panel b in board) Controls.Remove(b);
-            board = new Panel[0, 0];
+           if (board!= null) foreach (Panel b in board) pnl_Pixels.Controls.Remove(b); 
+            board = new Panel[0,0];
         }
 
         private void but_more_Click(object sender, EventArgs e)
@@ -211,8 +245,9 @@ namespace DrawPixel
             return CoolImage.CoolImage.SerializeFormat.Binary;
         }
 
-        bool mousePAINT;
 
+        bool mousePAINT;
+       
 
         private void Paint(object sender, EventArgs e)
         {
@@ -257,7 +292,6 @@ namespace DrawPixel
             Remove_board();
             Create_board(value, newe);
         }
-
-
+        
     }
 }
