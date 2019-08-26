@@ -31,3 +31,6 @@ D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\DrawPixel.pdb
 D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\CoolImage.dll
 D:\Documents_D\Icon-creator\DrawPixel\bin\Debug\CoolImage.pdb
 D:\Documents_D\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CopyComplete
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\CoolImage.dll
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\bin\Debug\CoolImage.pdb
+D:\Проекты C#\OwlProjects\Icon-creator\DrawPixel\obj\Debug\DrawPixel.csproj.CopyComplete
