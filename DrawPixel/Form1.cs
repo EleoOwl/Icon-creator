@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace DrawPixel
 {
@@ -51,6 +52,31 @@ namespace DrawPixel
         }
         private void Create_board(int n, Color[,] arr = null)
         {
+            //int l = 20, r = this.Width - panel1.Width - l;
+            //int u = 20, d = this.Height - 2*u;
+
+            //int size = ((r - l) < (d - u) ? (r - l) : (d - u)) / n;
+            //Remove_board();
+            //board = new Panel[n, n];
+            //for (int i = 0; i < n; i++)
+            //{
+            //    l = 20;
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        board[i, j] = new Panel();
+            //        board[i, j].Size = new Size((int)(0.9 * size), (int)(0.9 * size));
+            //        board[i, j].Location = new Point(l, u); l += size;
+            //        if (arr == null) board[i, j].BackColor = Color.Gray;
+            //           else board[i, j].BackColor = arr[i, j];
+            //        //  board[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Left)));
+            //        board[i, j].Click += new EventHandler(panel_Click);
+            //        board[i, j].MouseEnter += new EventHandler(Paint);
+            //        board[i, j].DoubleClick += new EventHandler(Form1_MouseDoubleClick);
+            //        pnl_Pixels.Controls.Add(board[i, j]);
+            //    }
+            //    u += size;
+            
+
             int x = 5, y = 5, d = 2; // Начальные координаты.
             int size = pnl_Pixels.Width > pnl_Pixels.Height ? (pnl_Pixels.Height - 2 * x - (n - 1) * d) / n :
                 (pnl_Pixels.Width - 2 * x - (n - 1) * d) / n;
@@ -78,30 +104,7 @@ namespace DrawPixel
                 y += size + d;
             }
 
-            //int l = 20, r = this.Width - panel1.Width - l;
-            //int u = 20, d = this.Height - 2*u;
-
-            //int size = ((r - l) < (d - u) ? (r - l) : (d - u)) / n;
-            //Remove_board();
-            //board = new Panel[n, n];
-            //for (int i = 0; i < n; i++)
-            //{
-            //    l = 20;
-            //    for (int j = 0; j < n; j++)
-            //    {
-            //        board[i, j] = new Panel();
-            //        board[i, j].Size = new Size((int)(0.9 * size), (int)(0.9 * size));
-            //        board[i, j].Location = new Point(l, u); l += size;
-            //        if (arr == null) board[i, j].BackColor = Color.Gray;
-            //           else board[i, j].BackColor = arr[i, j];
-            //        //  board[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Left)));
-            //        board[i, j].Click += new EventHandler(panel_Click);
-            //        board[i, j].MouseEnter += new EventHandler(Paint);
-            //        board[i, j].DoubleClick += new EventHandler(Form1_MouseDoubleClick);
-            //        pnl_Pixels.Controls.Add(board[i, j]);
-            //    }
-            //    u += size;
-            //}
+           
             
         }
         private void Remove_board()
@@ -147,20 +150,99 @@ namespace DrawPixel
 
         private void save_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you  want to save your picture as .jpg?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //DialogResult f = MessageBox.Show("Do you  want to save your picture as .jpg?", "", MessageBoxButtons.YesNoCancel);
+            //if (f == DialogResult.Yes)
+            //{
+            //    int c = (int)Math.Sqrt(board.Length);
+            //    Bitmap bmp = new Bitmap(c, c);
+            //    for (int i = 0; i < c; i++)
+            //        for (int j = 0; j < c; j++)
+            //            if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
+
+            //    FileDialog a = new SaveFileDialog();
+            //    a.Filter = "Изображение (.png)|*.png";
+            //    a.ShowDialog();
+            //    if (a.FileName != null)
+            //        bmp.Save(a.FileName);
+            //}
+            //else if (f == DialogResult.No)
+            //{
+            //    int c = (int)Math.Sqrt(board.Length);
+            //    Bitmap bmp = new Bitmap(c, c);
+            //    Color[,] clr = new Color[c, c];
+            //    for (int i = 0; i < c; i++)
+            //        for (int j = 0; j < c; j++)
+            //        {
+            //            if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
+            //            clr[i, j] = board[i, j].BackColor;
+            //        }
+            //    CoolImage.CoolImage saved = new CoolImage.CoolImage(clr, bmp);
+            //    FileDialog a = new SaveFileDialog();
+            //    a.Filter = "Сериализированный объект bin (*.bin)|*.bin|Сериализованный объект .soap |*.soap| Сериализованный объект .xml |*.xml";
+            //    a.ShowDialog();
+            //    if (a.FileName != null)
+            //        saved.Save(a.FileName, Ext(a.FileName));
+            //}
+            try
             {
-                int c =(int) Math.Sqrt(board.Length);
+                FileDialog a = new SaveFileDialog();
+                a.ShowDialog();
+                //изображение
+                int c = (int)Math.Sqrt(board.Length);
+
                 Bitmap bmp = new Bitmap(c, c);
+                Color[,] clr = new Color[c, c];
+
                 for (int i = 0; i < c; i++)
                     for (int j = 0; j < c; j++)
-                      if (board[i, j].BackColor!=Color.Gray)  bmp.SetPixel(j, i, board[i, j].BackColor);
+                    {
+                        if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(i, j, board[i, j].BackColor);
+                        clr[i, j] = board[i, j].BackColor;
+                    }
+                string name = getName(a.FileName);
+                DirectoryInfo dirInfo = new DirectoryInfo(a.FileName);
+                if (!dirInfo.Exists)
+                {
+                    dirInfo.Create();
+                }
+                if (a.FileName != null)
+                    bmp.Save(a.FileName + "\\" + name + ".png");
 
-                FileDialog a = new SaveFileDialog();
-                a.Filter = "Изображение (.png)|*.png";
-                a.ShowDialog();
-                if (a.FileName!=null)
-                     bmp.Save(a.FileName);
+                //сериализации
+
+                CoolImage.CoolImage saved = new CoolImage.CoolImage(clr, bmp);
+
+                saved.Save(a.FileName + "\\" + name + ".bin", CoolImage.CoolImage.SerializeFormat.Binary);
+                // saved.Save(a.FileName + "\\" + name + ".xml", CoolImage.CoolImage.SerializeFormat.Xml);
+                saved.Save(a.FileName + "\\" + name + ".soap", CoolImage.CoolImage.SerializeFormat.Soap);
             }
+            catch { MessageBox.Show("You've done something wrong, sorry. You could try again"); }
+        }
+
+        private string getName(string s)
+        {
+            string ss = ""; bool coma = !s.Contains('.');
+            for (int i = s.Length - 1; i >= 0 && s[i] != '\\'; i--)
+            {
+                if (s[i] == '.') coma = true;
+                if (coma) ss += s[i];
+            }
+            ss.Reverse();
+            return ss;
+        }
+
+        private CoolImage.CoolImage.SerializeFormat Ext(string a)
+        {
+            for (int i = 0; i < a.Length && a[i] != '.'; i++)
+            {
+                if (a[i + 1] == '.') switch (a[i + 2])
+                    {
+                        case 's': return CoolImage.CoolImage.SerializeFormat.Soap; break;
+                        case 'x': return CoolImage.CoolImage.SerializeFormat.Xml; break;
+                        case 'b': return CoolImage.CoolImage.SerializeFormat.Binary; break;
+                    }
+            }
+            return CoolImage.CoolImage.SerializeFormat.Binary;
         }
 
 
@@ -210,10 +292,6 @@ namespace DrawPixel
             Remove_board();
             Create_board(value, newe);
         }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }
