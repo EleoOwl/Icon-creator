@@ -30,16 +30,18 @@
         {
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.pcb_CurrentColor = new System.Windows.Forms.PictureBox();
+            this.clear = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.erase = new System.Windows.Forms.Button();
-            this.clear = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.but_colour = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pcb_CloseForm = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnl_Pixels = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,16 +51,15 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pcb_CurrentColor = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_CurrentColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_CloseForm)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_CurrentColor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,16 +77,24 @@
             this.panel1.Size = new System.Drawing.Size(651, 46);
             this.panel1.TabIndex = 0;
             // 
-            // trackBar1
+            // pcb_CurrentColor
             // 
-            this.trackBar1.Location = new System.Drawing.Point(248, 1);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(144, 45);
-            this.trackBar1.SmallChange = 2;
-            this.trackBar1.TabIndex = 1;
-            this.trackBar1.TickFrequency = 2;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            this.pcb_CurrentColor.Location = new System.Drawing.Point(101, 3);
+            this.pcb_CurrentColor.Name = "pcb_CurrentColor";
+            this.pcb_CurrentColor.Size = new System.Drawing.Size(43, 39);
+            this.pcb_CurrentColor.TabIndex = 6;
+            this.pcb_CurrentColor.TabStop = false;
+            // 
+            // clear
+            // 
+            this.clear.BackgroundImage = global::DrawPixel.Properties.Resources.clear;
+            this.clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.clear.Location = new System.Drawing.Point(199, 3);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(43, 39);
+            this.clear.TabIndex = 3;
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // save
             // 
@@ -109,16 +118,16 @@
             this.erase.UseVisualStyleBackColor = true;
             this.erase.Click += new System.EventHandler(this.erase_Click);
             // 
-            // clear
+            // trackBar1
             // 
-            this.clear.BackgroundImage = global::DrawPixel.Properties.Resources.clear;
-            this.clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.clear.Location = new System.Drawing.Point(199, 3);
-            this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(43, 39);
-            this.clear.TabIndex = 3;
-            this.clear.UseVisualStyleBackColor = true;
-            this.clear.Click += new System.EventHandler(this.clear_Click);
+            this.trackBar1.Location = new System.Drawing.Point(248, 1);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(144, 45);
+            this.trackBar1.SmallChange = 2;
+            this.trackBar1.TabIndex = 1;
+            this.trackBar1.TickFrequency = 2;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
             // but_colour
             // 
@@ -141,7 +150,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(651, 33);
             this.panel2.TabIndex = 3;
-           // this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // pcb_CloseForm
             // 
@@ -175,7 +184,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(651, 502);
             this.panel3.TabIndex = 4;
-           
             // 
             // pnl_Pixels
             // 
@@ -186,9 +194,19 @@
             this.pnl_Pixels.Size = new System.Drawing.Size(651, 399);
             this.pnl_Pixels.TabIndex = 5;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(51)))), ((int)(((byte)(107)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 70);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(651, 10);
+            this.panel5.TabIndex = 6;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(51)))), ((int)(((byte)(107)))));
+            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 479);
@@ -232,19 +250,22 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save as...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.save_Click);
+            this.saveAsToolStripMenuItem.DoubleClick += new System.EventHandler(this.save_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // toolsToolStripMenuItem
@@ -259,23 +280,16 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // pcb_CurrentColor
+            // label3
             // 
-            this.pcb_CurrentColor.Location = new System.Drawing.Point(101, 3);
-            this.pcb_CurrentColor.Name = "pcb_CurrentColor";
-            this.pcb_CurrentColor.Size = new System.Drawing.Size(43, 39);
-            this.pcb_CurrentColor.TabIndex = 6;
-            this.pcb_CurrentColor.TabStop = false;
-           // this.pcb_CurrentColor.Click += new System.EventHandler(this.pcb_CurrentColor_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(51)))), ((int)(((byte)(107)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 70);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(651, 10);
-            this.panel5.TabIndex = 6;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(492, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 14);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Designed by MEDOEDUSHKA";
             // 
             // Form1
             // 
@@ -293,6 +307,7 @@
             this.DoubleClick += new System.EventHandler(this.Form1_MouseDoubleClick);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_CurrentColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -303,7 +318,6 @@
             this.panel4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_CurrentColor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,6 +347,7 @@
         private System.Windows.Forms.PictureBox pcb_CloseForm;
         private System.Windows.Forms.PictureBox pcb_CurrentColor;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label3;
     }
 }
 
