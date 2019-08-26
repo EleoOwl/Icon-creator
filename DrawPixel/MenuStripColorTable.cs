@@ -78,7 +78,7 @@ namespace DrawPixel
         {
             get
             {
-                return Color.FromArgb(255, 255, 255);
+                return Color.FromArgb(163, 138, 197);
             }
         }
 
