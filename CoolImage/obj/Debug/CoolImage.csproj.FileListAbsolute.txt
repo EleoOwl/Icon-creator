@@ -4,3 +4,9 @@ D:\Documents_D\DrawPixel\CoolImage\obj\Debug\CoolImage.csprojAssemblyReference.c
 D:\Documents_D\DrawPixel\CoolImage\obj\Debug\CoolImage.csproj.CoreCompileInputs.cache
 D:\Documents_D\DrawPixel\CoolImage\obj\Debug\CoolImage.dll
 D:\Documents_D\DrawPixel\CoolImage\obj\Debug\CoolImage.pdb
+D:\Documents_D\Icon-creator\CoolImage\bin\Debug\CoolImage.dll
+D:\Documents_D\Icon-creator\CoolImage\bin\Debug\CoolImage.pdb
+D:\Documents_D\Icon-creator\CoolImage\obj\Debug\CoolImage.csprojAssemblyReference.cache
+D:\Documents_D\Icon-creator\CoolImage\obj\Debug\CoolImage.csproj.CoreCompileInputs.cache
+D:\Documents_D\Icon-creator\CoolImage\obj\Debug\CoolImage.dll
+D:\Documents_D\Icon-creator\CoolImage\obj\Debug\CoolImage.pdb
