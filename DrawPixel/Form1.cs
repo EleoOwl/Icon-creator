@@ -17,7 +17,7 @@ namespace DrawPixel
 
         Panel[,] board;
         Color mouseColour;
-        Color defaultPixelColor = Color.Gray;
+        Color defaultPixelColor = Color.AntiqueWhite;
         public Form1()
         {
 
@@ -71,7 +71,7 @@ namespace DrawPixel
                         Location = new Point(x, y),
                     };
                     if (arr == null) board[i, j].BackColor = defaultPixelColor;
-                    else board[i, j].BackColor = (arr[i, j]!= Color.Empty)? arr[i, j]:Color.Gray;
+                    else board[i, j].BackColor = (arr[i, j].Name!= "0")? arr[i, j]: defaultPixelColor;
                     board[i, j].Click += new EventHandler(panel_Click);
                     board[i, j].MouseEnter += new EventHandler(Paint);
                     board[i, j].DoubleClick += new EventHandler(Form1_MouseDoubleClick);
@@ -103,7 +103,7 @@ namespace DrawPixel
 
         private void erase_Click(object sender, EventArgs e)
         {
-            mouseColour = Color.Gray;
+            mouseColour = defaultPixelColor;
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace DrawPixel
             {
                 int l = (int)Math.Sqrt(board.Length);
                 for (int i = 0; i < l; i++)
-                    for (int j = 0; j < l; j++) board[i, j].BackColor = Color.Gray;
+                    for (int j = 0; j < l; j++) board[i, j].BackColor = defaultPixelColor;
                 isOpen = false;
             }
 
@@ -136,7 +136,7 @@ namespace DrawPixel
                     for (int i = 0; i < c; i++)
                         for (int j = 0; j < c; j++)
                         {
-                            if (board[i, j].BackColor != Color.Gray) bmp.SetPixel(j, i, board[i, j].BackColor);
+                            if (board[i, j].BackColor != defaultPixelColor) bmp.SetPixel(j, i, board[i, j].BackColor);
                             clr[i, j] = board[i, j].BackColor;
                         }
                     string name = getName(a.FileName);
@@ -239,7 +239,7 @@ namespace DrawPixel
                     for (int j = 0; j < value; j++)
                     {
                         if (i > diff && j > diff && i < (len - diff) && j < (len - diff)) newe[i, j] = board[i - diff, j - diff].BackColor;
-                        else newe[i, j] = Color.Gray;
+                        else newe[i, j] = defaultPixelColor;
                     }
             }
 
